@@ -19,8 +19,13 @@
 	<!-- Shiro Filter -->
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager" />
-		<property name="loginUrl" value="/login" />
-		<property name="successUrl" value="/" />
+		<!-- 登录路径 -->  
+        <property name="loginUrl" value="/login" />  
+        <!-- 登录成功后跳转路径 -->  
+        <property name="successUrl" value="/" />  
+        <!-- 授权失败跳转路径 -->  
+        <property name="unauthorizedUrl" value="/login" />  
+        <!-- 过滤链定义 -->  
 		<property name="filterChainDefinitions">
 			<value>
 				/login = authc
